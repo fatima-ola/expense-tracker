@@ -2,42 +2,41 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
-  const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
-  const [date, setDate] = useState("");
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
 
   const handleTitleChange = (event) => {
-    setTitle(event.target.value);
+    setEnteredTitle(event.target.value);
   };
 
   const handleAmountChange = (event) => {
-    setAmount(event.target.value);
+    setEnteredAmount(event.target.value);
   };
 
   const handleDateChange = (event) => {
-    setDate(event.target.value);
+    setEnteredDate(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const expenseData = {
-      expenseTitle: title,
-      expenseAmount: amount,
-      expenseDate: new Date(date),
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate + "T00:00:00"),
     };
-    // console.log(expenseDate);
     props.onSaveExpenseData(expenseData);
-    setTitle("");
-    setAmount("");
-    setDate("");
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
   return (
     <form onSubmit={handleSubmit}>
       <div className="new-expense_controls">
         <div className="new-expense_control">
           <label>Title</label>
-          <input type="text" onChange={handleTitleChange} value={title} />
+          <input type="text" onChange={handleTitleChange} value={enteredTitle} />
         </div>
         <div className="new-expense_control">
           <label>Amount</label>
@@ -46,7 +45,7 @@ const ExpenseForm = (props) => {
             min="0.01"
             step="0.01"
             onChange={handleAmountChange}
-            value={amount}
+            value={enteredAmount}
           />
         </div>
         <div className="new-expense_control">
@@ -56,7 +55,7 @@ const ExpenseForm = (props) => {
             min="2019-01-01"
             max="2022-12-31"
             onChange={handleDateChange}
-            value={date}
+            value={enteredDate}
           />
         </div>
       </div>
