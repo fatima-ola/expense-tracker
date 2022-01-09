@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import Button from "../UI/Button";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-  // const [toggleForm, setToggleForm] = useState(true);
 
   const handleTitleChange = (event) => {
     setEnteredTitle(event.target.value);
@@ -66,10 +66,10 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense_actions">
-        <button type="button" onClick={props.cancelForm}>
+        <Button type="button" onClick={props.cancelForm}>
           Cancel
-        </button>
-        <button type="submit">Add Expense</button>
+        </Button>
+        <Button type="submit">Add Expense</Button>
       </div>
     </form>
   );

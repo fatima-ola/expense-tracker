@@ -1,0 +1,10 @@
+.expense-delete {
+  background-color: rgb(250, 87, 23);
+  color: white;
+  border-radius: 10px;
+  border-color: rgb(250, 87, 23);
+  font-size: 1.15rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin-left: 0.4rem;
+}
